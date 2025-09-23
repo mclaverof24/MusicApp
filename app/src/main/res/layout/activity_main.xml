@@ -10,7 +10,7 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- Diskoaren irudia -->
+
     <ImageView
         android:id="@+id/albumCover"
         android:layout_width="263dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/album" />
 
-    <!-- Abestiaren titulua -->
+
     <TextView
         android:id="@+id/songTitle"
         android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Taldearen izena -->
+
     <TextView
         android:id="@+id/artistName"
         android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Denbora-barra -->
+
     <SeekBar
         android:id="@+id/progressBar"
         android:layout_width="351dp"
@@ -67,7 +67,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/artistName" />
 
-    <!-- Denbora hasiera -->
+
     <TextView
         android:id="@+id/timeElapsed"
         android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@id/progressBar"
         app:layout_constraintStart_toStartOf="@id/progressBar"/>
 
-    <!-- Denbora falta -->
+
     <TextView
         android:id="@+id/timeRemaining"
         android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/progressBar"
         app:layout_constraintEnd_toEndOf="@id/progressBar"/>
 
-    <!-- Kontrol botoiak -->
+
     <LinearLayout
         android:id="@+id/playerControls"
         android:layout_width="wrap_content"
@@ -101,7 +101,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/timeElapsed">
 
-        <!-- Prev -->
+
         <androidx.cardview.widget.CardView
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -119,7 +119,7 @@
                 app:tint="#FFFFFF" />
         </androidx.cardview.widget.CardView>
 
-        <!-- Play / Pause -->
+
         <androidx.cardview.widget.CardView
             android:layout_width="90dp"
             android:layout_height="90dp"
@@ -139,7 +139,7 @@
                 app:tint="#FFFFFF" />
         </androidx.cardview.widget.CardView>
 
-        <!-- Next -->
+
         <androidx.cardview.widget.CardView
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -158,7 +158,7 @@
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <!-- Bolumen-barra -->
+
     <LinearLayout
         android:id="@+id/volumeLayout"
         android:layout_width="360dp"
@@ -190,7 +190,7 @@
             android:thumbTint="#1DB954" />
     </LinearLayout>
 
-    <!-- Beste botoiak -->
+
     <LinearLayout
         android:id="@+id/extraButtons"
         android:layout_width="wrap_content"
@@ -202,7 +202,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/volumeLayout">
 
-        <!-- Share -->
+
         <androidx.cardview.widget.CardView
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -221,7 +221,7 @@
                 app:tint="#FFFFFF" />
         </androidx.cardview.widget.CardView>
 
-        <!-- Lyrics -->
+
         <androidx.cardview.widget.CardView
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -240,7 +240,7 @@
                 app:tint="#FFFFFF" />
         </androidx.cardview.widget.CardView>
 
-        <!-- Queue -->
+
         <androidx.cardview.widget.CardView
             android:layout_width="56dp"
             android:layout_height="56dp"
