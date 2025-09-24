@@ -1,5 +1,5 @@
 package com.example.musicapp
-
+import androidx.compose.ui.tooling.preview.Devices
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -173,17 +174,29 @@ fun MusicPlayerLandscape() {
 
 @Composable
 fun PlaybackControls() {
+    var isPlaying by remember { mutableStateOf(false) }
+
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        PlayerButton(icon = R.drawable.ic_prev, size = 70.dp)
+        PlayerButton(icon = R.drawable.ic_prev, size = 70.dp, onClick = { /* TODO: prev */ })
+
         Spacer(modifier = Modifier.width(16.dp))
-        PlayerButton(icon = R.drawable.ic_play, size = 90.dp)
+
+        // Cambia el icono según isPlaying
+        PlayerButton(
+            icon = if (isPlaying) R.drawable.ic_pause else R.drawable.ic_play,
+            size = 90.dp,
+            onClick = { isPlaying = !isPlaying }
+        )
+
         Spacer(modifier = Modifier.width(16.dp))
-        PlayerButton(icon = R.drawable.ic_next, size = 70.dp)
+
+        PlayerButton(icon = R.drawable.ic_next, size = 70.dp, onClick = { /* TODO: next */ })
     }
 }
+
 
 @Composable
 fun VolumeControl() {
@@ -227,7 +240,7 @@ fun ExtraButtons() {
 }
 
 @Composable
-fun PlayerButton(icon: Int, size: Dp) {
+fun PlayerButton(icon: Int, size: Dp, onClick: () -> Unit) {
     Card(
         shape = CircleShape,
         elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
@@ -235,7 +248,7 @@ fun PlayerButton(icon: Int, size: Dp) {
         modifier = Modifier.size(size)
     ) {
         IconButton(
-            onClick = { /* TODO */ },
+            onClick = onClick,
             modifier = Modifier.fillMaxSize()
         ) {
             Icon(
@@ -247,6 +260,7 @@ fun PlayerButton(icon: Int, size: Dp) {
         }
     }
 }
+
 
 @Composable
 fun ExtraButton(icon: Int) {
@@ -269,7 +283,9 @@ fun ExtraButton(icon: Int) {
     }
 }
 
-@Preview(showBackground = true)
+
+
+@Preview(showBackground = true, name = "Portrait Mode")
 @Composable
 fun PortraitPreview() {
     MusicAppTheme {
@@ -277,10 +293,11 @@ fun PortraitPreview() {
     }
 }
 
-@Preview(showBackground = true, widthDp = 800, heightDp = 400)
+@Preview(showBackground = true, name = "Landscape Mode", device = Devices.AUTOMOTIVE_1024p, widthDp = 800, heightDp =400) // Example device spec
 @Composable
 fun LandscapePreview() {
     MusicAppTheme {
         MusicPlayerLandscape()
     }
 }
+
